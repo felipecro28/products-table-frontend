@@ -17,13 +17,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/cadastro-usuario" element={<Cadastro/>}/>
-        <Route exact path="/cadastro-cliente" element={<NovoCliente/>}/>
-        <Route exact path="/cadastro-produtos" element={<CadastroProdutos/>}/>
-        <Route exact children={<VendaProduto/>} path="/vendas" element={<Vendas/>}>
-          <Route exact path="venda-produto" element={<VendaProduto/>}/>
-        </Route>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/cadastro-usuario" element={<Cadastro />} />
+          <Route exact path="/cadastro-cliente" element={<NovoCliente />} />
+          <Route exact path="/cadastro-produtos" element={<CadastroProdutos />} />
+          <Route exact children={<VendaProduto />} path="/vendas" element={<Vendas />}>
+            <Route exact path="venda-produto" element={<VendaProduto />} />
+          </Route>
         </Routes>
       </Router>
 

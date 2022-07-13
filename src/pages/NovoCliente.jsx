@@ -1,7 +1,7 @@
 import Formulario from "../components/Form"
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
-import {message} from 'antd';
+import { message } from 'antd';
 import "antd/dist/antd.css";
 
 
@@ -13,7 +13,7 @@ export default function NovoCliente() {
   const [CNPJ, setCNPJ] = useState('')
   const [endereco, setEndereco] = useState('')
 
-  
+
   const label = ['Razao Social', 'CNPJ', 'Endereço']
   const value = [razaoSocial, CNPJ, endereco]
   const change = [setRazaoSocial, setCNPJ, setEndereco]
@@ -40,7 +40,7 @@ export default function NovoCliente() {
     })
       .then(response => response.json())
       .then(data => {
-        data.Message=='Erro na validação do usuário. O usuário precisa estar logado.' ? message.error(data.Message) : message.success('Cliente criado com sucesso')
+        data.Message == 'Erro na validação do usuário. O usuário precisa estar logado.' ? message.error(data.Message) : message.success('Cliente criado com sucesso')
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -51,7 +51,7 @@ export default function NovoCliente() {
     e.preventDefault()
     const clienteCadastrado = { razaoSocial, CNPJ, endereco }
     const clienteExistente = clientes.filter(cliente => cliente.CNPJ === clienteCadastrado.CNPJ)
-    console.log(clienteExistente) 
+    console.log(clienteExistente)
     if (clienteExistente.length != 0) {
       message.error('CNPJ já cadastrado')
       return
@@ -62,8 +62,8 @@ export default function NovoCliente() {
 
   return (
     <div>
-        <Header />
-        <Formulario
+      <Header />
+      <Formulario
         titulo='Cadastro de Clientes'
         colunas={3}
         label={label}
@@ -71,7 +71,7 @@ export default function NovoCliente() {
         change={change}
         button='Cadastrar'
         onclick={cadastrarCliente}
-        />
+      />
     </div>
   )
 }
