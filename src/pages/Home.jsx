@@ -13,6 +13,7 @@ export default function Home() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  const type = ['text', 'password']
   const label = ['Username', 'Password']
   const value = [username, password]
   const change = [setUsername, setPassword]
@@ -75,6 +76,7 @@ export default function Home() {
         change={change}
         button='Fazer Login'
         onclick={login}
+        type={type}
       />
     </div>
   )

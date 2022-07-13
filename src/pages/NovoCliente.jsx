@@ -13,7 +13,7 @@ export default function NovoCliente() {
   const [CNPJ, setCNPJ] = useState('')
   const [endereco, setEndereco] = useState('')
 
-
+  const type = ['text', 'number', 'text']
   const label = ['Razao Social', 'CNPJ', 'Endereço']
   const value = [razaoSocial, CNPJ, endereco]
   const change = [setRazaoSocial, setCNPJ, setEndereco]
@@ -71,6 +71,7 @@ export default function NovoCliente() {
         change={change}
         button='Cadastrar'
         onclick={cadastrarCliente}
+        type={type}
       />
     </div>
   )
