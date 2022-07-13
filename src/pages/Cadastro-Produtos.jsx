@@ -10,6 +10,8 @@ export default function CadastroProdutos() {
     const [unidadeDeMedida, setunidadeDeMedida] = useState('')
     const [valorDeCompra, setvalorDeCompra] = useState(NaN)
 
+    const type = ['number', 'text', 'number', 'text', 'number']
+
 
     const label = ['Codigo do Produto', 'Descrição do Produto', 'Quantidade', 'Unidade de Medida', 'Valor de Compra']
     const value = [codigoDoProduto, descricao, quantidade, unidadeDeMedida, valorDeCompra]
@@ -49,6 +51,7 @@ export default function CadastroProdutos() {
                 change={change}
                 button='Cadastrar'
                 onclick={cadastrarProduto}
+                type={type}
             />
         </div>
     )

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Formulario from '../components/Form';
 import { message } from 'antd';
+import Vendas from './Vendas';
 
 export default function VendaProduto() {
 
@@ -9,6 +10,8 @@ export default function VendaProduto() {
   const [valorDaVenda, setValorDaVenda] = useState(NaN)
   const [quantidade, setQuantidade] = useState(NaN)
   const [produtos, setProdutos] = useState([])
+
+  const type = ['number', 'number', 'number']
 
   useEffect(() => {
     try {
@@ -38,7 +41,7 @@ export default function VendaProduto() {
     if (quantidade > +produto[0].quantidade) return message.error('Quantidade da venda maior que a disponívem em estoque')
     console.log(typeof (produtoAlterado.valorDaVenda))
 
-    fetch(import.meta.env.VITE_API_CLIENTES + id, {
+    fetch(import.meta.env.VITE_API_PRODUTOS + id, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +68,7 @@ export default function VendaProduto() {
       status: 'Finalizado',
       token: localStorage.getItem('jwt')
     }
-    fetch(import.meta.env.VITE_API_CLIENTES, {
+    fetch(import.meta.env.VITE_API_PRODUTOS, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,6 +83,7 @@ export default function VendaProduto() {
       .catch((error) => {
         console.error('Error:', error);
       })
+      Vendas.hydrate()
   }
 
   function registrar(e) {
@@ -102,7 +106,10 @@ export default function VendaProduto() {
         value={value}
         change={change}
         button='Registrar'
-        onclick={registrar} />
+        onclick={registrar}
+        type={type}
+        />
+  
 
 
     </div>

@@ -13,6 +13,8 @@ export default function Cadastro() {
   const value = [name, username, password]
   const change = [setName, setUsername, setPassword]
 
+  const type = ['text', 'text', 'password']
+
   function cadastrarUsuario(e) {
     e.preventDefault()
     const usuario = { name, username, password, token: localStorage.getItem('jwt') }
@@ -45,6 +47,7 @@ export default function Cadastro() {
         change={change}
         button='Cadastrar'
         onclick={cadastrarUsuario}
+        type={type}
       />
     </div>
   )

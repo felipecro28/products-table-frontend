@@ -18,7 +18,7 @@ export default function Formulario(props) {
           label={props.label[key]}
           name={props.label[key]}
           rules={[{ required: true, message: `Favor inserir  ${props.label[key]}` }]}>
-          <Input style={{ width: '80%' }} value={props.value[key]} onChange={(e) => props.change[key](e.target.value)} />
+          <Input type={props.type[key]} style={{ width: '80%' }} value={props.value[key]} onChange={(e) => props.change[key](e.target.value)} />
         </Form.Item>
       })}
       <Button type='primary' onClick={props.onclick}> {props.button} </Button>
