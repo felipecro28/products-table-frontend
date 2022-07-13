@@ -29,17 +29,14 @@ export default function VendaProduto() {
   const produto = produtos.filter(product => product.id == +id)
 
 
-
-
-
   function alteraProduto() {
     if (produto[0] === undefined) return message.error('É necessário inserir um ID válido')
 
     const produtoAlterado = { id, valorDaVenda: +valorDaVenda, quantidade: produto[0].quantidade - quantidade }
+
     if (produtoAlterado.valorDaVenda <= +produto[0].valorDeCompra) return message.error('Valor da venda deve ser superior ao de compra.')
     if (quantidade > +produto[0].quantidade) return message.error('Quantidade da venda maior que a disponívem em estoque')
-    console.log(typeof(produtoAlterado.valorDaVenda))
-
+    console.log(typeof (produtoAlterado.valorDaVenda))
 
     fetch(import.meta.env.VITE_API_CLIENTES + id, {
       method: 'PATCH',
@@ -83,7 +80,7 @@ export default function VendaProduto() {
       .catch((error) => {
         console.error('Error:', error);
       })
-    }
+  }
 
   function registrar(e) {
     e.preventDefault()
@@ -92,7 +89,7 @@ export default function VendaProduto() {
   }
 
   return (
-    <div style={{ position: 'absolute', top: '30%', width:'100%'}}>
+    <div style={{ position: 'absolute', top: '30%', width: '100%' }}>
 
 
       <Formulario
@@ -105,8 +102,8 @@ export default function VendaProduto() {
         value={value}
         change={change}
         button='Registrar'
-        onclick={registrar}/>
-          
+        onclick={registrar} />
+
 
     </div>
   )

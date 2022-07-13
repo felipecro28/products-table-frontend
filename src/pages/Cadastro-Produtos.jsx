@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Formulario from '../components/Form'
 import Header from '../components/Header'
 import { message } from 'antd';
@@ -35,21 +35,21 @@ export default function CadastroProdutos() {
             });
     }
 
-return (
-    <div>
-        <Header />
-        <Formulario
-            layout='inline'
-            titulo='Cadastro de Produto'
-            height='1000px'
-            margin='40px'
-            colunas={5}
-            label={label}
-            value={value}
-            change={change}
-            button='Cadastrar'
-            onclick={cadastrarProduto}
-        />
-    </div>
-)
+    return (
+        <div>
+            <Header />
+            <Formulario
+                layout='inline'
+                titulo='Cadastro de Produto'
+                height='1000px'
+                margin='40px'
+                colunas={5}
+                label={label}
+                value={value}
+                change={change}
+                button='Cadastrar'
+                onclick={cadastrarProduto}
+            />
+        </div>
+    )
 }
